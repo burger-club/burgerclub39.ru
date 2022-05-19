@@ -1,0 +1,12 @@
+node_modules
+dist
+.output
+.nuxt
+coverage
+*.log*
+.DS_Store
+.code
+*.iml
+package-lock.json
+templates/*
+sw.js

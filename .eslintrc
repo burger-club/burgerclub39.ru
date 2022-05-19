@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": 2022
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "@nuxtjs/eslint-config-typescript",
+    "prettier" // eslint-config-prettier
+  ],
+  "plugins": [
+    "nuxt",
+    "prettier" // eslint-plugin-prettier
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "vue/multi-word-component-names": "error",
+    "vue/no-multiple-template-root": "off"
+  }
+}
