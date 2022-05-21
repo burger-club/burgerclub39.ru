@@ -16,6 +16,10 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "@iconify-json/akar-icons": "^1.1.5",
+    "@iconify-json/carbon": "^1.1.5",
+    "@iconify-json/dashicons": "^1.1.1",
+    "@iconify-json/majesticons": "^1.1.1",
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
@@ -28,6 +32,8 @@
     "nuxt-windicss": "^2.3.1",
     "prettier": "^2.6.2",
     "typescript": "^4.6.4",
+    "unplugin-icons": "^0.14.3",
+    "unplugin-vue-components": "^0.19.5",
     "vue-eslint-parser": "^9.0.2"
   }
 }

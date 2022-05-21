@@ -32,7 +32,11 @@ export default defineConfig({
       rose: colors.rose,
       yellow: colors.amber,
       orange: colors.orange,
-      gray: colors.gray,
+      gray: {
+        300: '#BBC3CF',
+        400: '#8896AB',
+        800: '#333F51',
+      },
       purple: colors.purple,
     },
     extend: {
