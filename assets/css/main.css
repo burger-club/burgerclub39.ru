@@ -1,0 +1,29 @@
+:root {
+  --header-height: 80px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  @apply text-white;
+}
+
+h1 {
+  @apply text-4xl leading-11 font-semibold;
+}
+
+h2 {
+  @apply text-xl leading-30px font-semibold;
+}
+
+p {
+  @apply text-xl leading-30px font-medium text-gray-400;
+}
+
+.icon {
+  @apply filter invert;
+}
