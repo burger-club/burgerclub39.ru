@@ -10,14 +10,25 @@
     </div>
 
     <div class="app-card__purchase">
-      <AppButton>Добавить в корзину</AppButton>
+      <AppButton class="app-card__button" @click="handleClick">
+        <Transition name="app-card__button-text" mode="out-in">
+          <div :key="textOnButton">
+            {{ textOnButton }}
+          </div>
+        </Transition>
+      </AppButton>
       <span class="app-card__price">{{ price }} ₽</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { ref, toRaw } from 'vue'
+import { CardProps } from '~/interfaces/card-props'
+import { useCartStore } from '~/store'
+import { defaultText, useButton } from '~/composables/text-change'
+
+const productProps: CardProps = defineProps({
   imageSrc: {
     type: String,
     required: true,
@@ -35,6 +46,16 @@ defineProps({
     required: true,
   },
 })
+
+const textOnButton = ref(defaultText)
+
+const store = useCartStore()
+const product = toRaw(productProps)
+
+function handleClick () {
+  store.addProduct(product)
+  useButton(textOnButton)
+}
 </script>
 
 <style scoped lang="postcss">
@@ -55,6 +76,23 @@ defineProps({
 
   &__purchase {
     @apply flex justify-between items-center;
+  }
+
+  &__button {
+    @apply min-w-35.5 animate-bounce transition-all;
+
+    &-text {
+
+      &-enter-active,
+      &-leave-active {
+        @apply transition-opacity duration-200;
+      }
+
+      &-enter-from,
+      &-leave-to {
+        @apply opacity-0;
+      }
+    }
   }
 
   &__price {
