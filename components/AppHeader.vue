@@ -6,16 +6,9 @@
       <span class="header__phone-number">+7 (800) 505 22 55</span>
       <div class="header__cart-wrapper">
         <IconCart />
-        <svg
-          v-if="productsCount > 0"
-          class="header__circle"
-          viewBox="0 0 30 30"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="50%" cy="50%" r="15" />
-          <text x="15" y="20.5" text-anchor="middle" class="text">{{ productsCount }}</text>
-        </svg>
+        <div v-if="productsCount" class="header__circle">
+          {{ productsCount }}
+        </div>
       </div>
     </div>
   </header>
@@ -33,10 +26,6 @@ const productsCount = computed(() => cartStore.getProductsCount)
 </script>
 
 <style scoped lang="postcss">
-.text {
-  @apply fill-white;
-}
-
 .header {
   @apply m-auto px-7.5 flex items-center justify-between h-[var(--header-height)];
 
@@ -45,7 +34,8 @@ const productsCount = computed(() => cartStore.getProductsCount)
   }
 
   &__circle {
-    @apply w-5 absolute -right-2 top-0 fill-yellow-500;
+    @apply w-5 h-5 absolute -right-2 top-0 bg-yellow-500 rounded-[50%]
+    flex items-center justify-center text-white text-xs leading-4.5 font-medium;
   }
 
   &__right-content {
