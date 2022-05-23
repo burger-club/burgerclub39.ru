@@ -28,11 +28,19 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['virtual:windi.css', 'virtual:windi-devtools', '~/assets/css/main.css'],
+  css: [
+    'virtual:windi.css',
+    'virtual:windi-devtools',
+    '~/assets/css/main.css',
+  ],
 
   plugins: [],
 
-  modules: ['nuxt-windicss', 'unplugin-icons/nuxt'],
+  modules: [
+    'nuxt-windicss',
+    'unplugin-icons/nuxt',
+    '@pinia/nuxt',
+  ],
 
   windicss: {
     analyze: true,
