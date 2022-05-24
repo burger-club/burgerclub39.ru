@@ -50,10 +50,10 @@ const productProps: CardProps = defineProps({
 const textOnButton = ref(defaultText)
 
 const store = useCartStore()
-const product = toRaw(productProps)
+const { title, price } = toRaw(productProps)
 
 function handleClick () {
-  store.addProduct(product)
+  store.addProduct({ title, price, amount: 1 })
   useButton(textOnButton)
 }
 </script>
