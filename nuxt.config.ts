@@ -32,9 +32,12 @@ export default defineNuxtConfig({
     'virtual:windi.css',
     'virtual:windi-devtools',
     '~/assets/css/main.css',
+    'vuetify/lib/styles/main.css',
   ],
 
-  plugins: [],
+  build: {
+    transpile: ['vuetify'],
+  },
 
   modules: [
     'nuxt-windicss',
@@ -47,6 +50,9 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    define: {
+      'process.env.DEBUG': false,
+    },
     plugins: [
       Components({
         resolvers: [IconsResolver()],

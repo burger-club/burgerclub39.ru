@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div class="wrapper">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -7,7 +7,7 @@
 </template>
 
 <style scoped lang="postcss">
-.background {
-  @apply bg-[#202225];
+.wrapper {
+  @apply bg-[#202225] font-sans;
 }
 </style>

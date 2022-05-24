@@ -37,5 +37,9 @@
     "unplugin-icons": "^0.14.3",
     "unplugin-vue-components": "^0.19.5",
     "vue-eslint-parser": "^9.0.2"
+  },
+  "dependencies": {
+    "sass": "^1.52.1",
+    "vuetify": "^3.0.0-beta.2"
   }
 }
