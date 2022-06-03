@@ -6,11 +6,11 @@
 import IconChevron from '~icons/akar-icons/chevron-down'
 </script>
 
-<style lang="postcss">
+<style scoped lang="postcss">
 .icon_chevron {
   @apply w-4 h-4 filter-none;
 
-  & path {
+  & :deep(path) {
     @apply stroke-width-3;
   }
 }

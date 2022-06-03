@@ -7,11 +7,11 @@ import Burger from '~icons/majesticons/burger-line'
 
 </script>
 
-<style lang="postcss">
+<style scoped lang="postcss">
 .icon_burger {
   @apply w-16 h-16;
 
-  & g {
+  & :deep(g) {
     @apply stroke-width-1;
   }
 }
