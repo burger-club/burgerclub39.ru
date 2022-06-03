@@ -32,12 +32,7 @@ export default defineNuxtConfig({
     'virtual:windi.css',
     'virtual:windi-devtools',
     '~/assets/css/main.css',
-    'vuetify/lib/styles/main.css',
   ],
-
-  build: {
-    transpile: ['vuetify'],
-  },
 
   modules: [
     'nuxt-windicss',
