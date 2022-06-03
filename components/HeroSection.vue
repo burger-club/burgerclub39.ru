@@ -7,7 +7,6 @@
     <div class="hero-section__content">
       <AppCard v-for="(i, index) in data" v-bind="i" :key="index" />
     </div>
-    <h1 />
   </section>
 </template>
 
