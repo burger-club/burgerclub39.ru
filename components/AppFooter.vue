@@ -18,7 +18,7 @@ import AppLogo from './AppLogo.vue'
   @apply pt-13.5 pb-6.5 flex flex-col items-center;
 
   &__hr {
-    @apply mt-10 mb-7 w-full text-gray-800;
+    @apply mt-10 mb-7 w-full border-gray-800;
   }
 
   &__info {
