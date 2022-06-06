@@ -3,26 +3,35 @@
     <AppLogo :is-header="true" />
 
     <div class="header__right-content">
-      <span class="header__phone-number">+7 (800) 505 22 55</span>
-      <div class="header__cart-wrapper">
-        <IconCart />
+      <a href="tel:+78005052255" class="header__telephone telephone">+7 (800) 505 22 55</a>
+
+      <div class="header__cart-wrapper" @click="showModal">
+        <IconCart class="cursor-pointer" />
         <div v-if="productsCount" class="header__circle">
           {{ productsCount }}
         </div>
       </div>
     </div>
+
+    <ModalCart v-model="isShowModal" @close-modal="showModal" />
   </header>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import IconCart from './icons/IconCart.vue'
+import ModalCart from './ModalCart.vue'
 import AppLogo from './AppLogo.vue'
 import { useCartStore } from '~/store'
+
+const isShowModal = ref(false)
 
 const cartStore = useCartStore()
 const productsCount = computed(() => cartStore.getProductsCount)
 
+function showModal () {
+  isShowModal.value = !isShowModal.value
+}
 </script>
 
 <style scoped lang="postcss">
@@ -42,8 +51,8 @@ const productsCount = computed(() => cartStore.getProductsCount)
     @apply flex items-center gap-12.5;
   }
 
-  &__phone_number {
-    @apply text-xl leading-30px font-medium;
+  &__telephone {
+    @apply <sm:hidden;
   }
 }
 </style>

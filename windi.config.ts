@@ -33,6 +33,8 @@ export default defineConfig({
       yellow: colors.amber,
       orange: colors.orange,
       gray: {
+        50: '#F5F5F5',
+        200: '#D5DAE1',
         300: '#BBC3CF',
         400: '#8896AB',
         800: '#333F51',
@@ -41,7 +43,7 @@ export default defineConfig({
     },
     extend: {
       fontFamily: {
-        sans: 'Poppins',
+        sans: 'Roboto',
       },
       transitionProperty: {
         height: 'height',

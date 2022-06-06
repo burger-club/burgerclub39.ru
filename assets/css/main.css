@@ -24,6 +24,36 @@ p {
   @apply text-xl leading-30px font-medium text-gray-400;
 }
 
+
+// Forms
+label {
+  @apply text-sm leading-17px font-medium;
+}
+
+input {
+  @apply text-gray-200 py-2.5 px-4 w-full bg-transparent
+  border-2 border-solid border-[#25272B] rounded-lg;
+}
+
+.form__field:focus {
+  @apply outline-none border-yellow-500;
+}
+
+input[type=submit] {
+  @apply text-gray-50 bg-yellow-500 px-0;
+}
+
+input[type=reset] {
+  @apply text-gray-800;
+}
+
+input[type=submit],
+input[type=reset] {
+  @apply cursor-pointer;
+}
+
+
+// Icons
 .icon {
   @apply filter invert;
 }
