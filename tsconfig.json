@@ -14,7 +14,13 @@
       "~/*": ["./*"],
       "@/*": ["./src/*"]
     },
-    "types": ["@types/node", "nuxt-windicss", "unplugin-icons/types/vue", "pinia"],
+    "types": [
+      "@types/node",
+      "nuxt-windicss",
+      "unplugin-icons/types/vue",
+      "pinia",
+      "@nuxtjs/strapi"
+    ],
     "jsx": "preserve"
   },
   "exclude": ["node_modules", ".nuxt", "dist", ".output"]

@@ -1,10 +1,14 @@
 <template>
-  <VueFinalModal content-class="modal-content" classes="modal-container">
+  <VueFinalModal :content-class="['modal-content', size]" classes="modal-container">
     <div class="modal">
       <div v-if="isCloseIcon" class="modal__icon cursor-pointer" @click="$emit('closeModal')">
         <IconClose />
       </div>
-
+      <h2 class="modal__title">
+        <slot name="title">
+          Заголовок
+        </slot>
+      </h2>
       <slot />
     </div>
   </VueFinalModal>
@@ -21,19 +25,35 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  size: {
+    type: String,
+    default: '',
+  },
 })
 </script>
 
 <style scoped lang="postcss">
+:deep(.sm) {
+  @apply max-w-xl;
+}
+:deep(.xl) {
+  @apply max-w-5xl
+}
+
 .modal {
-  @apply max-w-5xl w-full m-auto px-25 pt-14 pb-19 bg-[#202225] relative border border-solid border-[#25272B] rounded-lg;
+  @apply w-full m-auto px-15 py-9 bg-[#202225] relative
+  border border-solid border-[#25272B] rounded-lg;
 
   :deep(&-container) {
     @apply flex justify-center items-center;
   }
 
   :deep(&-content) {
-    @apply flex max-w-5xl w-full;
+    @apply flex w-full;
+  }
+
+  &__title {
+    @apply mb-3 text-center;
   }
 
   &__icon {

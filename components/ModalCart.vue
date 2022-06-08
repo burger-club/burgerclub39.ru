@@ -1,12 +1,11 @@
 <template>
-  <AppModal :is-close-icon="true">
+  <AppModal :is-close-icon="true" :size="'xl'">
+    <template #title>
+      Корзина
+    </template>
     <div v-if="products.length" class="cart">
-      <h2 class="cart__title">
-        Корзина
-      </h2>
-
       <div class="cart__products">
-        <CartProduct v-for="product in products" :key="product.title" v-bind="product" />
+        <CartProduct v-for="product in products" :key="product.id" v-bind="product" />
       </div>
 
       <div class="cart__total-price">
@@ -75,10 +74,6 @@ const products = store.getCart
 }
 
 .cart {
-  &__title {
-    @apply mb-3 text-center;
-  }
-
   &__total-price {
     @apply text-right mb-2 pt-4 border-t border-solid border-gray-800;
   }

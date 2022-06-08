@@ -2,14 +2,10 @@
   --header-height: 80px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-span {
-  @apply text-white;
+
+// Default text
+body {
+  @apply font-sans text-white;
 }
 
 h1 {
@@ -30,9 +26,13 @@ label {
   @apply text-sm leading-17px font-medium;
 }
 
-input {
+input, select {
   @apply text-gray-200 py-2.5 px-4 w-full bg-transparent
   border-2 border-solid border-[#25272B] rounded-lg;
+}
+
+select {
+  @apply bg-[#202225];
 }
 
 .form__field:focus {
@@ -55,5 +55,5 @@ input[type=reset] {
 
 // Icons
 .icon {
-  @apply filter invert;
+  @apply text-black filter invert;
 }

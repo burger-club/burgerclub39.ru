@@ -3,7 +3,7 @@ import { useCartStore } from '~/store'
 
 export function findProductIndex (product: Product) {
   const productIndex = useCartStore().getCart.findIndex((productInCart: Product) => {
-    return productInCart.title === product.title
+    return productInCart.name === product.name
   })
 
   return productIndex

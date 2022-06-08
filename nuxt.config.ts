@@ -38,7 +38,12 @@ export default defineNuxtConfig({
     'nuxt-windicss',
     'unplugin-icons/nuxt',
     '@pinia/nuxt',
+    '@nuxtjs/strapi',
   ],
+
+  strapi: {
+    url: 'https://37c9-128-0-164-183.ngrok.io',
+  },
 
   windicss: {
     analyze: true,

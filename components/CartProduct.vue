@@ -1,15 +1,15 @@
 <template>
   <div class="product">
     <div class="product__left-content">
-      <img class="product__image" :src="product.imageSrc">
+      <img class="product__image" :src="imageUrl" :alt="imageAltText">
 
       <div>
         <h3 class="product__product-name">
-          {{ product.title }}
+          {{ name }}
         </h3>
 
         <h4 class="product__product-price">
-          Стоимость: <strong>{{ product.price }} ₽</strong>
+          Стоимость: <strong>{{ price }} ₽</strong>
         </h4>
       </div>
     </div>
@@ -29,11 +29,15 @@ import IconMinus from './icons/IconMinus.vue'
 import { useCartStore } from '~/store'
 
 const cartProductProps = defineProps({
-  imageSrc: {
+  imageUrl: {
     type: String,
     required: true,
   },
-  title: {
+  imageAltText: {
+    type: String,
+    required: true,
+  },
+  name: {
     type: String,
     required: true,
   },

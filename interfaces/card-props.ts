@@ -1,6 +1,11 @@
+import { Image } from './image'
+
 export interface CardProps {
-  imageSrc: string;
-  title: string;
-  description: string;
-  price: number;
+  attributes: {
+    name: string;
+    description: string;
+    price: number;
+    image: Image;
+  };
+  id: number;
 }

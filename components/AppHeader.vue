@@ -3,7 +3,7 @@
     <AppLogo :is-header="true" />
 
     <div class="header__right-content">
-      <a href="tel:+78005052255" class="header__telephone telephone">+7 (800) 505 22 55</a>
+      <AppTelephone class="header__telephone" />
 
       <div class="header__cart-wrapper" @click="showModal">
         <IconCart class="cursor-pointer" />
@@ -19,6 +19,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import AppTelephone from './AppTelephone.vue'
 import IconCart from './icons/IconCart.vue'
 import ModalCart from './ModalCart.vue'
 import AppLogo from './AppLogo.vue'
