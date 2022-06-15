@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   target: 'static',
   ssr: false,
   app: {
+    // TODO: Change name, favicon, preview.png, descriptions, keywords
     head: {
       title: 'Burger Time | Меню',
       link: [
@@ -15,10 +16,9 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap',
         },
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ],
       meta: [
-        { charset: 'utf-8' },
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1',
@@ -79,7 +79,7 @@ export default defineNuxtConfig({
   ],
 
   strapi: {
-    url: 'https://37c9-128-0-164-183.ngrok.io',
+    url: 'http://localhost:1337',
   },
 
   windicss: {
