@@ -1,0 +1,13 @@
+.husky
+.nuxt
+.output
+
+node_modules
+.commitlintrc.json
+.editorconfig
+.eslintignore
+.eslintrc.json
+.gitignore
+.prettierignore
+.prettierrc.js
+npm-debug.log
