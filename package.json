@@ -7,7 +7,7 @@
     "preview": "nuxi preview",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "lint:fix": "npm run lint -- --fix",
-    "prepare": "npx husky install && npx husky add .husky/commit-msg 'npx commitlint --edit $1"
+    "prepare": "npx husky install && npx husky add .husky/commit-msg 'npx commitlint --edit $1'"
   },
   "lint-staged": {
     "*.{js,ts,vue}": "eslint --cache",
