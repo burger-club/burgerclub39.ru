@@ -4,8 +4,8 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 
 export default defineNuxtConfig({
-  target: 'static',
-  ssr: false,
+  target: 'server',
+  ssr: true,
   app: {
     head: {
       title: 'Burger Time | Меню',
