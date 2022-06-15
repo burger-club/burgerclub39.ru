@@ -1,5 +1,5 @@
 <template>
-  <svg class="spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <svg class="spinner animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <circle
       class="spinner__circle"
       cx="12"
@@ -14,7 +14,7 @@
 
 <style scoped lang="postcss">
 .spinner {
-  @apply animate-spin h-10 w-10 text-white;
+  @apply h-10 w-10 text-white;
 
   &__circle {
     @apply opacity-25;

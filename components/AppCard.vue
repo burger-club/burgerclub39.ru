@@ -99,8 +99,7 @@ function handleClick () {
   }
 
   &__button {
-    @apply animate-bounce transition-all col-span-2 h-full
-    <sm:order-1;
+    @apply animate-bounce transition-all col-span-2 h-full;
 
     &-text {
 
@@ -117,7 +116,7 @@ function handleClick () {
   }
 
   &__price {
-    @apply text-2xl font-medium text-right <sm:text-left;
+    @apply text-2xl font-medium text-right <sm:text-right;
   }
 }
 

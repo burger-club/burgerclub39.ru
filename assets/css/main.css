@@ -26,9 +26,10 @@ label {
   @apply text-sm leading-17px font-medium;
 }
 
-input, select {
+input,
+select {
   @apply text-gray-200 py-2.5 px-4 w-full bg-transparent
-  border-2 border-solid border-[#25272B] rounded-lg;
+  border-2 border-solid border-gray-800 rounded-lg;
 }
 
 select {
@@ -39,16 +40,16 @@ select {
   @apply outline-none border-yellow-500;
 }
 
-input[type=submit] {
+input[type='submit'] {
   @apply text-gray-50 bg-yellow-500 px-0;
 }
 
-input[type=reset] {
+input[type='reset'] {
   @apply text-gray-800;
 }
 
-input[type=submit],
-input[type=reset] {
+input[type='submit'],
+input[type='reset'] {
   @apply cursor-pointer;
 }
 
