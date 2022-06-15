@@ -36,7 +36,7 @@ export const useCartStore = defineStore('cartStore', {
 
   actions: {
     addProduct (product: Product) {
-      if (this.cart.some((productInCart: Product) => productInCart.name === product.name)) {
+      if (this.cart.some((productInCart: Product) => productInCart.id === product.id)) {
         const productIndex = findProductIndex(product)
 
         this.cart[productIndex].amount++
@@ -61,6 +61,8 @@ export const useCartStore = defineStore('cartStore', {
 
       this.cities = response.data
       this.city = response.data[0]
+
+      // TODO: move to server/api
     },
     changeCity (city: City) {
       this.city = city
