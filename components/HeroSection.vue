@@ -1,9 +1,13 @@
 <template>
-  <section class="hero-section">
+  <IconSpinner v-if="pending" />
+
+  <section v-else class="hero-section">
     <h1>Наше меню</h1>
+
     <p class="hero-section__subtitle">
       Выберите то, что нравится Вам!
     </p>
+
     <div class="hero-section__content col-span-2">
       <AppCard v-for="product in products" v-bind="product.attributes" :id="product.id" :key="product.id" />
     </div>
@@ -12,11 +16,19 @@
 
 <script setup lang="ts">
 import AppCard from './AppCard.vue'
+import IconSpinner from './icons/IconSpinner.vue'
 import { CardProps } from '~/interfaces/card-props'
 
+interface LazyData<T> {
+  pending: boolean;
+  data: T;
+}
+
 const { find } = useStrapi4()
-const response = await find('products', { populate: '*' })
-const products: CardProps[] = response.data
+const { pending, data: products }: LazyData<CardProps[]> = useLazyAsyncData('products', async () => {
+  const { data } = await find('products', { populate: '*' })
+  return data
+})
 
 // TODO: типизировать
 </script>

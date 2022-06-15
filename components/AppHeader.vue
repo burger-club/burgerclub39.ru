@@ -37,7 +37,7 @@ function showModal () {
 
 <style scoped lang="postcss">
 .header {
-  @apply m-auto px-7.5 flex items-center justify-between h-[var(--header-height)];
+  @apply px-7.5 flex items-center justify-between h-[var(--header-height)] w-full;
 
   &__cart-wrapper {
     @apply relative;
