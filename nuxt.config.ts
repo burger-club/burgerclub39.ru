@@ -5,7 +5,7 @@ import Components from 'unplugin-vue-components/vite'
 
 export default defineNuxtConfig({
   target: 'server',
-  ssr: true,
+  ssr: false,
   app: {
     head: {
       title: 'Burger Time | Меню',
