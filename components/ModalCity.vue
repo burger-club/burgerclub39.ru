@@ -5,7 +5,7 @@
     </template>
 
     <form class="form" @submit.prevent="$emit('choseCity', selected, cities)">
-      <select v-model="selected" class="form__field" title="Города" name="cities">
+      <select v-model="selected" required class="form__field" title="Города" name="cities">
         <option v-for="city in cities" :key="city.id" :value="city.attributes.name">
           {{ city.attributes.name }}
         </option>
@@ -19,11 +19,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import AppModal from './AppModal.vue'
-import { City } from '~/interfaces/city'
 import { useCartStore } from '~/store'
 
 defineEmits(['choseCity'])
-
 
 const store = useCartStore()
 store.downloadCities()

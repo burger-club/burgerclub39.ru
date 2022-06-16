@@ -16,19 +16,42 @@
         <div>
           <label for="tel" class="required">Контактный телефон</label>
           <br>
-          <input id="tel" type="tel" name="tel" class="form__field">
+          <input
+            id="tel"
+            placeholder="+79123456789"
+            pattern="[+]{1}[7]{1}[0-9]{10}"
+            value="+7"
+            required
+            type="tel"
+            name="tel"
+            class="form__field"
+          >
         </div>
 
         <div>
           <label for="address" class="required">Адрес</label>
           <br>
-          <input id="address" type="text" name="address" class="form__field">
+          <input
+            id="address"
+            placeholder="ул. Пушкина, д. 29, кв. 7"
+            required
+            type="text"
+            name="address"
+            class="form__field"
+          >
         </div>
 
         <div>
-          <label for="name" class="required">ФИО покупателя</label>
+          <label for="name" class="required">Имя</label>
           <br>
-          <input id="name" type="text" name="name" class="form__field">
+          <input
+            id="name"
+            placeholder="Иван"
+            required
+            type="text"
+            name="name"
+            class="form__field"
+          >
         </div>
 
         <div class="form__buttons">
