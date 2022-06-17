@@ -1,11 +1,17 @@
-import { computed, Ref } from 'vue'
+import { computed, Ref, watch } from 'vue'
 import { CartItem } from '~/interfaces/cart-item'
 import { Product } from '~/interfaces/product'
 
 type Cart = CartItem[]
 
 export const useCart = () => {
-  const cart: Ref<Cart> = useState('cart', () => [])
+  const cart: Ref<Cart> = useState('cart', () => JSON.parse(sessionStorage.getItem('cart') ?? '[]'))
+
+  watch(
+    () => cart.value,
+    newValue => sessionStorage.setItem('cart', JSON.stringify(newValue)),
+    { deep: true },
+  )
 
   const productsCount = computed(() =>
     cart.value.reduce((acc, item) => acc + item.amount, 0),
@@ -25,6 +31,7 @@ export const useCart = () => {
 
     if (!item) {
       cart.value.push({ product, amount: 1 })
+
       return
     }
 
@@ -39,6 +46,7 @@ export const useCart = () => {
 
     if (item.amount === 1) {
       cart.value.splice(itemIndex, 1)
+
       return
     }
 
