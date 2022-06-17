@@ -31,7 +31,7 @@ const { pending, products } = useProducts()
   }
 
   &__content {
-    @apply grid grid-cols-12 gap-x-8 gap-y-21.25 w-full justify-items-center
+    @apply grid grid-cols-12 gap-x-8 gap-y-21.25 w-full justify-items-stretch
     <sm:gap-y-5 <sm:gap-x-0;
   }
 }

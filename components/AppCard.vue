@@ -81,11 +81,11 @@ function handleClick () {
   }
 
   &__purchase {
-    @apply grid grid-cols-3 gap-x-2 items-center justify-between xl:gap-x-8;
+    @apply grid grid-cols-3 gap-x-2 items-center justify-between xl:gap-x-0;
   }
 
   &__button {
-    @apply animate-bounce transition-all col-span-2 h-full;
+    @apply animate-bounce transition-all col-span-2 h-full min-w-[156.8px];
 
     &-text {
 
@@ -102,7 +102,7 @@ function handleClick () {
   }
 
   &__price {
-    @apply text-2xl font-medium text-right <sm:text-right;
+    @apply text-2xl font-medium text-right <xl:text-xl;
   }
 }
 
@@ -113,7 +113,7 @@ function handleClick () {
     }
 
     &__purchase {
-      @apply flex gap-0 flex-col items-stretch;
+      @apply grid grid-cols-1 grid-rows-2 gap-0 items-stretch;
     }
 
     &__price {
