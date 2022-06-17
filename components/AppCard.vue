@@ -1,13 +1,13 @@
 <template>
   <div class="app-card">
-    <img class="app-card__image" :src="imageUrl" :alt="imageAltText">
+    <img class="app-card__image" :src="source" :alt="altText">
 
     <div class="app-card__group">
       <div class="app-card__info">
-        <h2>{{ name }}</h2>
+        <h2>{{ product.attributes.name }}</h2>
 
         <p class="app-card__description">
-          {{ description }}
+          {{ product.attributes.description }}
         </p>
       </div>
 
@@ -20,7 +20,7 @@
           </Transition>
         </AppButton>
 
-        <span class="app-card__price">{{ price }} ₽</span>
+        <span class="app-card__price">{{ product.attributes.price }} ₽</span>
       </div>
     </div>
   </div>
@@ -29,43 +29,29 @@
 <script setup lang="ts">
 import { PropType, ref, toRaw } from 'vue'
 import AppButton from './AppButton.vue'
-import { useCartStore } from '~/store'
 import { defaultText, useButton } from '~/composables/text-change'
-import { Image } from '~/interfaces/image'
+import { Product } from '~/interfaces/product'
+import { useCart } from '~/composables/use-cart'
+import { useImageUtils } from '~/composables/use-image-utils'
 
-const productProps = defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  image: {
-    type: Object as PropType<Image>,
-    required: true,
-  },
-  id: {
-    type: Number,
+const props = defineProps({
+  product: {
+    type: Object as PropType<Product>,
     required: true,
   },
 })
 
 const textOnButton = ref(defaultText)
 
-const store = useCartStore()
+const { product } = toRaw(props)
 
-const { name, price, image, id } = toRaw(productProps)
-const imageUrl = useStrapiUrl().replace('/api', '') + image.data.attributes.url
-const imageAltText = image.data.attributes.url
+const { addProduct } = useCart()
+
+const { properties } = useImageUtils()
+const { source, altText } = properties(product.attributes.image)
 
 function handleClick () {
-  store.addProduct({ name, price, imageUrl, imageAltText, id, amount: 1 })
+  addProduct(product)
   useButton(textOnButton)
 }
 </script>

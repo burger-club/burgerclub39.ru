@@ -1,62 +1,51 @@
 <template>
   <div class="product">
     <div class="product__left-content">
-      <img class="product__image" :src="imageUrl" :alt="imageAltText">
+      <img class="product__image" :src="source" :alt="altText">
 
       <div>
         <h3 class="product__product-name">
-          {{ name }}
+          {{ item.product.attributes.name }}
         </h3>
 
         <h4 class="product__product-price">
-          Стоимость: <strong>{{ price }} ₽</strong>
+          Стоимость: <strong>{{ item.product.attributes.price }} ₽</strong>
         </h4>
       </div>
     </div>
 
     <div class="product__amount">
-      <IconPlus class="cursor-pointer" @click="addProduct" />
-      <b>{{ product.amount }}</b>
-      <IconMinus class="cursor-pointer" @click="decrementAmount" />
+      <IconPlus class="cursor-pointer" @click="addProduct(item.product)" />
+      <b>{{ item.amount }}</b>
+      <IconMinus
+        class="cursor-pointer"
+        @click="removeProduct(item.product)"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { toRaw } from 'vue'
+import { PropType, toRaw } from 'vue'
 import IconPlus from './icons/IconPlus.vue'
 import IconMinus from './icons/IconMinus.vue'
-import { useCartStore } from '~/store'
+import { useCart } from '~/composables/use-cart'
+import { CartItem } from '~/interfaces/cart-item'
+import { useImageUtils } from '~/composables/use-image-utils'
 
-const cartProductProps = defineProps({
-  imageUrl: {
-    type: String,
-    required: true,
-  },
-  imageAltText: {
-    type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  amount: {
-    type: Number,
+const props = defineProps({
+  item: {
+    type: Object as PropType<CartItem>,
     required: true,
   },
 })
 
-const store = useCartStore()
+const { item } = toRaw(props)
 
-const product = toRaw(cartProductProps)
+const { addProduct, removeProduct } = useCart()
 
-function addProduct () { store.addProduct(product) }
-function decrementAmount () { store.decrementAmount(product) }
+const { properties } = useImageUtils()
+const { source, altText } = properties(item.product.attributes.image)
 
 </script>
 

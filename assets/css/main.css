@@ -2,7 +2,6 @@
   --header-height: 80px;
 }
 
-
 // Default text
 body {
   @apply font-sans text-white;
@@ -19,7 +18,6 @@ h2 {
 p {
   @apply text-xl leading-30px font-medium text-gray-400;
 }
-
 
 // Forms
 label {
@@ -49,10 +47,10 @@ input[type='reset'] {
 }
 
 input[type='submit'],
-input[type='reset'] {
+input[type='reset'],
+input[type='button'] {
   @apply cursor-pointer;
 }
-
 
 // Icons
 .icon {

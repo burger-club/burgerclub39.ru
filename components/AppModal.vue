@@ -1,7 +1,7 @@
 <template>
-  <VueFinalModal :content-class="['modal-content', size]" classes="modal-container">
+  <VueFinalModal v-slot="{ close }" :content-class="['modal-content', size]" classes="modal-container">
     <div class="modal">
-      <div v-if="isCloseIcon" class="modal__icon cursor-pointer" @click="$emit('closeModal')">
+      <div v-if="isCloseIcon" class="modal__icon cursor-pointer" @click="close">
         <IconClose />
       </div>
       <h2 class="modal__title">
@@ -17,8 +17,6 @@
 <script setup lang="ts">
 import { VueFinalModal } from 'vue-final-modal'
 import IconClose from './icons/IconClose.vue'
-
-defineEmits(['closeModal'])
 
 defineProps({
   isCloseIcon: {

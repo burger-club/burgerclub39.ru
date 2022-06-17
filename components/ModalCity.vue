@@ -1,13 +1,19 @@
 <template>
-  <AppModal :size="'sm'">
+  <AppModal :click-to-close="!!city" :size="'sm'">
     <template #title>
       Выберите ваш город
     </template>
 
-    <form class="form" @submit.prevent="$emit('choseCity', selected, cities)">
-      <select v-model="selected" required class="form__field" title="Города" name="cities">
-        <option v-for="city in cities" :key="city.id" :value="city.attributes.name">
-          {{ city.attributes.name }}
+    <form
+      class="form"
+      @submit.prevent="() => {
+        setCurrentCity(selectCity);
+        hideAll()
+      }"
+    >
+      <select v-model="selectCity" required class="form__field" title="Города" name="cities">
+        <option v-for="c in cities" :key="c.id" :value="c">
+          {{ c.attributes.name }}
         </option>
       </select>
 
@@ -17,18 +23,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref } from 'vue'
 import AppModal from './AppModal.vue'
-import { useCartStore } from '~/store'
+import { useCities, useCurrentCity } from '~/composables/use-city-api'
+import { useModal } from '~/composables/use-modal'
 
-defineEmits(['choseCity'])
-
-const store = useCartStore()
-store.downloadCities()
-
-const cities = computed(() => store.getCities)
-const selected = computed(() => cities.value[0]?.attributes.name)
-// TODO: типизировать
+const cities = await useCities()
+const [city, setCurrentCity] = useCurrentCity()
+const selectCity = ref(city.value ?? cities[0])
+const { hideAll } = useModal()
 </script>
 
 <style scoped lang="postcss">

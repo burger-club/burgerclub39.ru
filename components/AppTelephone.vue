@@ -4,12 +4,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useCartStore } from '~/store'
+import { useCurrentCity } from '~/composables/use-city-api'
 
-const store = useCartStore()
-
-const telephone = computed(() => store.getPhone)
-const hrefTelephone = telephone?.value?.replace(/\(|\)|-|\s/gm, '')
+const [city] = useCurrentCity()
+const telephone = computed(() => city.value?.attributes.phone)
+const hrefTelephone = computed(() => telephone?.value?.replace(/\(|\)|-|\s/gm, ''))
 </script>
 
 <style scoped lang="postcss">

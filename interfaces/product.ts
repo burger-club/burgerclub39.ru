@@ -1,8 +1,11 @@
+import { Image } from './image'
+
 export interface Product {
+  attributes: {
+    name: string;
+    description: string;
+    price: number;
+    image: Image;
+  };
   id: number;
-  name: string;
-  price: number;
-  amount: number;
-  imageUrl: string;
-  imageAltText: string;
 }

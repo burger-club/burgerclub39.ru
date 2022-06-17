@@ -4,7 +4,13 @@
       <NuxtPage />
     </NuxtLayout>
   </div>
+
+  <ModalsContainer />
 </template>
+
+<script lang="ts" setup>
+import { ModalsContainer } from 'vue-final-modal'
+</script>
 
 <style scoped lang="postcss">
 .wrapper {

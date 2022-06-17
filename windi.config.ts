@@ -37,6 +37,7 @@ export default defineConfig({
         200: '#D5DAE1',
         300: '#BBC3CF',
         400: '#8896AB',
+        500: '#808080',
         800: '#333F51',
       },
       purple: colors.purple,

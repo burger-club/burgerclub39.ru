@@ -5,34 +5,30 @@
     <div class="header__right-content">
       <AppTelephone class="header__telephone" />
 
-      <div class="header__cart-wrapper" @click="showModal">
-        <IconCart class="cursor-pointer" />
+      <div class="header__cart-wrapper" @click="isActiveCart && show()">
+        <IconCart :class="[{ 'cursor-pointer': isActiveCart, 'header__icon-cart': !isActiveCart }]" />
         <div v-if="productsCount" class="header__circle">
           {{ productsCount }}
         </div>
       </div>
     </div>
-
-    <ModalCart v-model="isShowModal" @close-modal="showModal" />
   </header>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import AppTelephone from './AppTelephone.vue'
 import IconCart from './icons/IconCart.vue'
 import ModalCart from './ModalCart.vue'
 import AppLogo from './AppLogo.vue'
-import { useCartStore } from '~/store'
+import { useModal } from '~/composables/use-modal'
+import { useCart } from '~/composables/use-cart'
 
-const isShowModal = ref(false)
+const { productsCount } = useCart()
 
-const cartStore = useCartStore()
-const productsCount = computed(() => cartStore.getProductsCount)
+const isActiveCart = computed(() => productsCount.value > 0)
 
-function showModal () {
-  isShowModal.value = !isShowModal.value
-}
+const { show } = useModal(ModalCart)
 </script>
 
 <style scoped lang="postcss">
@@ -41,6 +37,10 @@ function showModal () {
 
   &__cart-wrapper {
     @apply relative;
+  }
+
+  &__icon-cart {
+    @apply text-gray-500 filter-none;
   }
 
   &__circle {

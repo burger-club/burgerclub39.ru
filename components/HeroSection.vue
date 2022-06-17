@@ -8,8 +8,8 @@
       Выберите то, что нравится Вам!
     </p>
 
-    <div class="hero-section__content col-span-2">
-      <AppCard v-for="product in products" v-bind="product.attributes" :id="product.id" :key="product.id" />
+    <div class="hero-section__content">
+      <AppCard v-for="product in products" :key="product.id" :product="product" />
     </div>
   </section>
 </template>
@@ -17,20 +17,9 @@
 <script setup lang="ts">
 import AppCard from './AppCard.vue'
 import IconSpinner from './icons/IconSpinner.vue'
-import { CardProps } from '~/interfaces/card-props'
+import { useProducts } from '~/composables/use-products'
 
-interface LazyData<T> {
-  pending: boolean;
-  data: T;
-}
-
-const { find } = useStrapi4()
-const { pending, data: products }: LazyData<CardProps[]> = useLazyAsyncData('products', async () => {
-  const { data } = await find('products', { populate: '*' })
-  return data
-})
-
-// TODO: типизировать
+const { pending, products } = useProducts()
 </script>
 
 <style scoped lang="postcss">

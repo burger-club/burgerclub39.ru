@@ -3,24 +3,25 @@
     <template #title>
       Корзина
     </template>
-    <div v-if="products.length" class="cart">
+
+    <div class="cart">
       <div class="cart__products">
-        <CartProduct v-for="product in products" :key="product.id" v-bind="product" />
+        <CartProduct v-for="item in cart" :key="item.product.id" :item="item" />
       </div>
 
       <div class="cart__total-price">
         <span>Итого: <strong>{{ totalPrice }} ₽</strong></span>
       </div>
 
-      <form class="cart__form form" @submit.prevent="sendOrder">
+      <form class="cart__form form" @submit.prevent="() => {createOrder(); hideAll()}">
         <div>
           <label for="tel" class="required">Контактный телефон</label>
           <br>
           <input
             id="tel"
+            v-model="fields.phone"
             placeholder="+79123456789"
             pattern="[+]{1}[7]{1}[0-9]{10}"
-            value="+7"
             required
             type="tel"
             name="tel"
@@ -33,6 +34,7 @@
           <br>
           <input
             id="address"
+            v-model="fields.address"
             placeholder="ул. Пушкина, д. 29, кв. 7"
             required
             type="text"
@@ -46,6 +48,7 @@
           <br>
           <input
             id="name"
+            v-model="fields.name"
             placeholder="Иван"
             required
             type="text"
@@ -55,29 +58,52 @@
         </div>
 
         <div class="form__buttons">
-          <input type="reset" value="Отмена" class="form__cancel-button" @click="cancelOrder">
+          <input type="button" value="Отмена" class="form__cancel-button" @click="hideAll">
           <input type="submit" value="Оформить" class="form__submit-button">
         </div>
       </form>
     </div>
-
-    <span v-else class="text-center">
-      Пока пусто
-    </span>
   </AppModal>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { reactive, watch } from 'vue'
 import AppModal from './AppModal.vue'
 import CartProduct from './CartProduct.vue'
-import { useCartStore } from '~/store'
+import { useCurrentCity } from '~/composables/use-city-api'
+import { useCart } from '~/composables/use-cart'
+import { useOrders } from '~/composables/use-orders'
+import { useModal } from '~/composables/use-modal'
 
-const store = useCartStore()
+const { cart, totalPrice, clear: clearCart, productsCount } = useCart()
 
-const totalPrice = computed(() => store.getTotalPrice)
+const fields = reactive({
+  phone: '+7',
+  address: '',
+  name: '',
+})
 
-const products = store.getCart
+const [city] = useCurrentCity()
+
+const { create } = useOrders()
+
+const { hideAll } = useModal()
+
+const createOrder = () => {
+  create({
+    ...fields,
+    city: city.value.id,
+    items: cart.value.map(item => ({
+      __component: 'order-item.order-item',
+      product: item.product.id,
+      amount: item.amount,
+    })),
+  })
+
+  clearCart()
+}
+
+watch(productsCount, value => value === 0 && hideAll())
 </script>
 
 <style scoped lang="postcss">
@@ -122,3 +148,5 @@ const products = store.getCart
   }
 }
 </style>
+
+<!-- TODO:TRIM fields -->
