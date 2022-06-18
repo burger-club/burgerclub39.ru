@@ -77,10 +77,6 @@ export default defineNuxtConfig({
     '@nuxtjs/strapi',
   ],
 
-  strapi: {
-    url: 'http://localhost:1337',
-  },
-
   windicss: {
     analyze: true,
   },
