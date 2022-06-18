@@ -6,7 +6,7 @@
   </div>
 
   <teleport to="body">
-    <Vue3Snackbar bottom right :duration="4000" />
+    <Vue3Snackbar bottom right :duration="750" />
   </teleport>
 
   <ModalsContainer />
