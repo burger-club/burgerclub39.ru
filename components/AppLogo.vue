@@ -50,7 +50,7 @@ if (props.isHeader && !city.value) {
   }
 
   &__city {
-    @apply flex items-center gap-2;
+    @apply text-lg flex items-center gap-2;
   }
 }
 </style>
