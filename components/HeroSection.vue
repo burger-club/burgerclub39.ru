@@ -9,7 +9,7 @@
     </p>
 
     <div class="hero-section__content">
-      <AppCard v-for="product in products" :key="product.id" :product="product" />
+        <AppCard v-for="(product, i) in products" :key="product.id" :product="product" :style="{ 'animation-delay': `${(~~(i / 4) * 250)}ms`}" />
     </div>
   </section>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-card">
+  <div class="animate__animated animate__fadeIn app-card">
     <img class="app-card__image" :src="source" :alt="altText">
 
     <div class="app-card__group">
