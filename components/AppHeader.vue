@@ -40,7 +40,7 @@ const { show } = useModal(ModalCart)
   }
 
   &__icon-cart {
-    @apply text-gray-500 filter-none;
+    @apply filter brightness-50;
   }
 
   &__circle {
