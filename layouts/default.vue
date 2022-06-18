@@ -21,6 +21,6 @@ import AppFooter from '~/components/AppFooter.vue'
 }
 
 .wrapper {
-  @apply max-w-6xl;
+  @apply max-w-6xl <xl: max-w-4xl;
 }
 </style>
