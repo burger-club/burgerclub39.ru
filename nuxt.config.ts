@@ -76,6 +76,13 @@ export default defineNuxtConfig({
     'nuxt-windicss',
     '@nuxtjs/strapi',
   ],
+  
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
+    prefix: '/api',
+    version: 'v4',
+    cookie: {},
+  }
 
   windicss: {
     analyze: true,
