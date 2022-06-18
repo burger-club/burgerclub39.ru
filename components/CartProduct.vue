@@ -4,12 +4,12 @@
       <img class="product__image" :src="source" :alt="altText">
 
       <div>
-        <h3 class="product__product-name">
+        <h3 class="product__name">
           {{ item.product.attributes.name }}
         </h3>
 
-        <h4 class="product__product-price">
-          Стоимость: <strong>{{ item.product.attributes.price }} ₽</strong>
+        <h4 class="product__price">
+          Стоимость: <strong class="product__price-numbers">{{ item.product.attributes.price }} ₽</strong>
         </h4>
       </div>
     </div>
@@ -51,7 +51,17 @@ const { source, altText } = properties(item.product.attributes.image)
 
 <style scoped lang="postcss">
 .product {
-  @apply flex items-center justify-between;
+  @apply grid grid-cols-[1fr,80px] gap-x-5;
+
+  &__name {
+    @apply font-bold;
+  }
+
+  &__price {
+    &-numbers {
+      @apply font-medium;
+    }
+  }
 
   &__image {
     @apply w-16 h-16 rounded-1
@@ -63,7 +73,7 @@ const { source, altText } = properties(item.product.attributes.image)
   }
 
   &__amount {
-    @apply grid grid-cols-[1fr,2fr,1fr] justify-items-center items-center;
+    @apply grid grid-cols-[20px,40px,20px] justify-items-center items-center justify-end;
   }
 }
 </style>
