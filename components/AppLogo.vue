@@ -2,12 +2,14 @@
   <div class="logo">
     <IconBurger />
     <div class="logo__text">
-      <span class="logo__name">BURGERTIME</span>
+      <span class="logo__name">ТЕ САМЫЕ БУРГЕРЫ</span>
 
       <span v-if="isHeader" class="logo__city">
         {{ city ? city.attributes.name : 'Выберите город' }}
         <IconChevron class="cursor-pointer" @click="show" />
       </span>
+
+      <AppTelephone v-else />
     </div>
   </div>
 </template>
@@ -16,6 +18,7 @@
 import ModalCity from './ModalCity.vue'
 import IconBurger from './icons/IconBurger.vue'
 import IconChevron from './icons/IconChevron.vue'
+import AppTelephone from './AppTelephone.vue'
 import { useCurrentCity } from '~/composables/use-city-api'
 import { useModal } from '~/composables/use-modal'
 
