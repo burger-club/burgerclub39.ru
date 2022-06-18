@@ -128,10 +128,12 @@ watch(productsCount, value => value === 0 && hideAll())
 }
 
 .form {
-  @apply grid grid-cols-2 gap-x-8 gap-y-3 items-end;
+  @apply grid grid-cols-2 gap-x-8 gap-y-3 items-end
+  <md:grid-cols-1;
 
   &__buttons {
-    @apply grid grid-cols-2 gap-10;
+    @apply grid grid-cols-2 gap-x-10
+    <sm:flex  flex-col-reverse gap-y-3;
   }
 
   // styles for input buttons see in main.css
@@ -159,6 +161,22 @@ watch(productsCount, value => value === 0 && hideAll())
           @apply bg-yellow-600;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-height:769px) {
+  .cart {
+    &__products {
+      @apply max-h-[25vh];
+    }
+  }
+}
+
+@media screen and (max-height:700px) {
+  .cart {
+    &__products {
+      @apply max-h-[20vh];
     }
   }
 }

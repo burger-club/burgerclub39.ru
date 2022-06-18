@@ -54,7 +54,8 @@ const { source, altText } = properties(item.product.attributes.image)
   @apply flex items-center justify-between;
 
   &__image {
-    @apply w-16 h-16 rounded-1;
+    @apply w-16 h-16 rounded-1
+    <sm:hidden;
   }
 
   &__left-content {
@@ -62,7 +63,7 @@ const { source, altText } = properties(item.product.attributes.image)
   }
 
   &__amount {
-    @apply grid grid-cols-[1fr,2fr,1fr] justify-items-center;
+    @apply grid grid-cols-[1fr,2fr,1fr] justify-items-center items-center;
   }
 }
 </style>

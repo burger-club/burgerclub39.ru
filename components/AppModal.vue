@@ -40,7 +40,8 @@ defineProps({
 
 .modal {
   @apply w-full m-auto px-15 py-9 bg-[#202225] relative
-  border border-solid border-[#25272B] rounded-lg;
+  border border-solid border-[#25272B] rounded-lg
+  <sm: px-5;
 
   :deep(&-container) {
     @apply flex justify-center items-center;
@@ -55,7 +56,7 @@ defineProps({
   }
 
   &__icon {
-    @apply p-0.5 absolute top-3.25 right-5.75 bg-[#25272B] rounded-full leading-0;
+    @apply p-1.75 absolute top-3.25 right-5.75 bg-[#25272B] rounded-full leading-0;
   }
 }
 </style>
