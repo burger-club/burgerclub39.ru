@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://yoursburgers.ru/sitemap.xml
+Sitemap: https://www.yoursburgers.ru/sitemap.xml

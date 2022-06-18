@@ -76,16 +76,16 @@ export default defineNuxtConfig({
     'nuxt-windicss',
     '@nuxtjs/strapi',
   ],
-  
+
   runtimeConfig: {
     strapi: { // nuxt/strapi options available server-side
-      url: 'http://example-strapi-instance:1337'
+      url: 'http://example-strapi-instance:1337',
     },
     public: {
       strapi: {
-        url: 'https://strapi.yoursburgers.ru'
-      }
-    }
+        url: 'https://strapi.yoursburgers.ru',
+      },
+    },
   },
 
   windicss: {
