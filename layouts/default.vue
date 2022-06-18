@@ -1,10 +1,12 @@
 <template>
-  <div class="layout">
-    <AppHeader class="wrapper mx-auto" />
-    <main class="wrapper m-auto">
+  <div id="layout" class="relative">
+    <AppHeader class="wrapper mx-auto z-100" />
+
+    <main class="wrapper m-auto z-100">
       <slot />
     </main>
-    <AppFooter />
+
+    <AppFooter class="z-100" />
   </div>
 </template>
 
@@ -14,7 +16,7 @@ import AppFooter from '~/components/AppFooter.vue'
 </script>
 
 <style scoped lang="postcss">
-.layout {
+#layout {
   @apply flex flex-col min-h-[100vh]
 }
 
@@ -22,5 +24,3 @@ import AppFooter from '~/components/AppFooter.vue'
   @apply max-w-6xl;
 }
 </style>
-
-<!-- FIXME: ref replace to useState -->
