@@ -7,43 +7,42 @@ export default defineNuxtConfig({
   target: 'static',
   ssr: false,
   app: {
-    // TODO: Change name, favicon, preview.png, descriptions, keywords
     head: {
-      title: 'Burger Time | Меню',
+      title: 'ТЕ САМЫЕ БУРГЕРЫ | Меню',
       link: [
         { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap',
         },
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
       meta: [
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1',
         },
-        { hid: 'description', name: 'description', content: '' },
+        { hid: 'description', name: 'description', content: '"Те самые бургеры" - это то место, где готоят наивкуснейшие бургеры по индивидуально рецептуре из натурального мяса на нежных и ароматных булочках. Приходя к нам, все любители фастфуда будут уходить только с положительными эмоциями... Гарантия качества - "Те Самые ..."' },
         {
           name: 'keywords',
-          content: '',
+          content: 'заказать бургер в Советске/Гусеве, хотдог, бурегр, доставка, Калининградская область бургерная, покушать Калининград',
         },
-        { hid: 'og:site_name', property: 'og:site_name', content: 'Necord' },
+        { hid: 'og:site_name', property: 'og:site_name', content: 'ТЕ САМЫЕ БУРГЕРЫ | Доставка бургеров по Калининградской области' },
         { hid: 'og:type', property: 'og:type', content: 'website' },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://necord.org/img/preview.png',
+          content: 'https://yoursburgers.ru/preview.png',
         },
         {
           hid: 'og:image:secure_url',
           property: 'og:image:secure_url',
-          content: 'https://necord.org/img/preview.png',
+          content: 'https://yoursburgers.ru/preview.png',
         },
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: 'Necord',
+          content: 'Те самые бургеры',
         },
         { hid: 'twitter:site', name: 'twitter:site', content: '@socketsomeone' },
         {
@@ -54,12 +53,12 @@ export default defineNuxtConfig({
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: 'https://necord.org/img/preview.png',
+          content: 'https://yoursburgers.ru/preview.png',
         },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'Necord',
+          content: 'Те самые бургеры',
         },
       ],
     },
