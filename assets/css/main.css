@@ -51,8 +51,3 @@ input[type='reset'],
 input[type='button'] {
   @apply cursor-pointer;
 }
-
-// Icons
-.icon {
-  @apply text-black filter invert;
-}

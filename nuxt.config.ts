@@ -1,7 +1,4 @@
 import { defineNuxtConfig } from 'nuxt'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import Components from 'unplugin-vue-components/vite'
 
 export default defineNuxtConfig({
   target: 'server',
@@ -37,7 +34,6 @@ export default defineNuxtConfig({
 
   modules: [
     'nuxt-windicss',
-    'unplugin-icons/nuxt',
     '@nuxtjs/strapi',
   ],
 
@@ -47,19 +43,5 @@ export default defineNuxtConfig({
 
   windicss: {
     analyze: true,
-  },
-
-  vite: {
-    define: {
-      'process.env.DEBUG': false,
-    },
-    plugins: [
-      Components({
-        resolvers: [IconsResolver()],
-      }),
-      Icons({
-        autoInstall: true,
-      }),
-    ],
   },
 })
