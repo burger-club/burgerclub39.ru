@@ -4,9 +4,9 @@
     <div class="logo__text">
       <span class="logo__name">ТЕ САМЫЕ БУРГЕРЫ</span>
 
-      <span v-if="isHeader" class="logo__city">
+      <span v-if="isHeader" class="logo__city cursor-pointer" @click="show">
         {{ city ? city.attributes.name : 'Выберите город' }}
-        <IconChevron class="cursor-pointer" @click="show" />
+        <IconChevron />
       </span>
 
       <AppTelephone v-else />
