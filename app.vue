@@ -5,10 +5,15 @@
     </NuxtLayout>
   </div>
 
+  <teleport to="body">
+    <Vue3Snackbar bottom right :duration="4000" />
+  </teleport>
+
   <ModalsContainer />
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
+import { Vue3Snackbar } from 'vue3-snackbar'
 import { ModalsContainer } from 'vue-final-modal'
 </script>
 

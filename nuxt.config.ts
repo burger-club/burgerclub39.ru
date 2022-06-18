@@ -29,6 +29,7 @@ export default defineNuxtConfig({
   },
 
   css: [
+    'vue3-snackbar/dist/style.css',
     'virtual:windi.css',
     'virtual:windi-devtools',
     '~/assets/css/main.css',

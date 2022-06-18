@@ -74,6 +74,7 @@ import { useCurrentCity } from '~/composables/use-city-api'
 import { useCart } from '~/composables/use-cart'
 import { useOrders } from '~/composables/use-orders'
 import { useModal } from '~/composables/use-modal'
+import { useSnackbar } from '~/composables/use-snackbar'
 
 const { cart, totalPrice, clear: clearCart, productsCount } = useCart()
 
@@ -89,18 +90,32 @@ const { create } = useOrders()
 
 const { hideAll } = useModal()
 
-const createOrder = () => {
-  create({
-    ...fields,
-    city: city.value.id,
-    items: cart.value.map(item => ({
-      __component: 'order-item.order-item',
-      product: item.product.id,
-      amount: item.amount,
-    })),
-  })
+const snackbar = useSnackbar()
 
-  clearCart()
+const createOrder = async () => {
+  try {
+    await create({
+      ...fields,
+      city: city.value.id,
+      items: cart.value.map(item => ({
+        __component: 'order-item.order-item',
+        product: item.product.id,
+        amount: item.amount,
+      })),
+    })
+
+    snackbar.add({
+      type: 'success',
+      text: `Ваш заказ на сумму ${totalPrice.value} ₽ принят в работу. Ожидайте звонка от оператора!`,
+    })
+  } catch {
+    snackbar.add({
+      type: 'error',
+      text: 'Технические неполадки.',
+    })
+  } finally {
+    clearCart()
+  }
 }
 
 watch(productsCount, value => value === 0 && hideAll())

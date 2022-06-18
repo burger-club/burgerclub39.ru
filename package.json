@@ -38,6 +38,7 @@
     "vue-eslint-parser": "^9.0.2"
   },
   "dependencies": {
-    "vue-final-modal": "^3.4.4"
+    "vue-final-modal": "^3.4.4",
+    "vue3-snackbar": "^1.1.2"
   }
 }

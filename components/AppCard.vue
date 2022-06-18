@@ -33,6 +33,7 @@ import { defaultText, useButton } from '~/composables/text-change'
 import { Product } from '~/interfaces/product'
 import { useCart } from '~/composables/use-cart'
 import { useImageUtils } from '~/composables/use-image-utils'
+import { useSnackbar } from '~/composables/use-snackbar'
 
 const props = defineProps({
   product: {
@@ -50,9 +51,17 @@ const { addProduct } = useCart()
 const { properties } = useImageUtils()
 const { source, altText } = properties(product.attributes.image)
 
+const snackbar = useSnackbar()
+
 function handleClick () {
   addProduct(product)
+
   useButton(textOnButton)
+
+  snackbar.add({
+    type: 'success',
+    text: `${product.attributes.name} успешно добавлен в корзину!`,
+  })
 }
 </script>
 
