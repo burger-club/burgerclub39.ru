@@ -33,7 +33,7 @@ const { show } = useModal(ModalCart)
 
 <style scoped lang="postcss">
 .header {
-  @apply px-7.5 flex items-center justify-between h-[var(--header-height)] w-full;
+  @apply px-7.5 flex items-center justify-between min-h-[var(--header-height)] pt-2 w-full;
 
   &__cart-wrapper {
     @apply relative;
