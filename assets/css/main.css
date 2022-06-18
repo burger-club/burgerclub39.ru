@@ -4,7 +4,7 @@
 
 // Default text
 body {
-  @apply font-sans text-white;
+  @apply font-sans text-white bg-[#202225];
 }
 
 h1 {
@@ -50,4 +50,21 @@ input[type='submit'],
 input[type='reset'],
 input[type='button'] {
   @apply cursor-pointer;
+}
+
+// Scroll
+::-webkit-scrollbar {
+  @apply w-3.5;
+
+  &-track {
+    @apply bg-[#25272B] rounded-md;
+  }
+
+  &-thumb {
+    @apply bg-yellow-500 rounded-md;
+
+    &:hover {
+      @apply bg-yellow-600;
+    }
+  }
 }

@@ -10,6 +10,7 @@
       </div>
 
       <div class="cart__total-price">
+        <hr class="border-gray-800 mb-5">
         <span>Итого: <strong>{{ totalPrice }} ₽</strong></span>
       </div>
 
@@ -141,27 +142,11 @@ watch(productsCount, value => value === 0 && hideAll())
 
 .cart {
   &__total-price {
-    @apply text-right mb-2 pt-4 border-t border-solid border-gray-800;
+    @apply text-right mb-2 pt-4 px-5;
   }
 
   &__products {
-    @apply grid gap-6 mb-5.5 max-h-[40vh] overflow-x-auto;
-
-    &::-webkit-scrollbar {
-      @apply w-3.5;
-
-      &-track {
-        @apply bg-[#25272B] rounded-md;
-      }
-
-      &-thumb {
-        @apply bg-yellow-500 rounded-md;
-
-        &:hover {
-          @apply bg-yellow-600;
-        }
-      }
-    }
+    @apply grid gap-6 mb-5.5 max-h-[40vh] overflow-y-auto px-5;
   }
 }
 
