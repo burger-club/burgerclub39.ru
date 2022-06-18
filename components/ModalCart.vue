@@ -20,7 +20,7 @@
           <br>
           <input
             id="tel"
-            v-model="fields.phone"
+            v-model.trim="fields.phone"
             placeholder="+79123456789"
             pattern="[+]{1}[7]{1}[0-9]{10}"
             required
@@ -35,7 +35,7 @@
           <br>
           <input
             id="address"
-            v-model="fields.address"
+            v-model.trim="fields.address"
             placeholder="ул. Пушкина, д. 29, кв. 7"
             required
             type="text"
@@ -49,7 +49,7 @@
           <br>
           <input
             id="name"
-            v-model="fields.name"
+            v-model.trim="fields.name"
             placeholder="Иван"
             required
             type="text"
@@ -166,5 +166,3 @@ watch(productsCount, value => value === 0 && hideAll())
   }
 }
 </style>
-
-<!-- TODO:TRIM fields -->
