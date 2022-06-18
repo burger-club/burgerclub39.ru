@@ -77,11 +77,15 @@ export default defineNuxtConfig({
     '@nuxtjs/strapi',
   ],
   
-  strapi: {
-    url: process.env.STRAPI_URL || 'http://localhost:1337',
-    prefix: '/api',
-    version: 'v4',
-    cookie: {},
+  runtimeConfig: {
+    strapi: { // nuxt/strapi options available server-side
+      url: 'http://example-strapi-instance:1337'
+    },
+    public: {
+      strapi: {
+        url: 'https://strapi.yoursburgers.ru'
+      }
+    }
   },
 
   windicss: {
