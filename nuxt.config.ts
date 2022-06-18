@@ -82,7 +82,7 @@ export default defineNuxtConfig({
     prefix: '/api',
     version: 'v4',
     cookie: {},
-  }
+  },
 
   windicss: {
     analyze: true,
