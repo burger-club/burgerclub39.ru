@@ -90,7 +90,7 @@ function handleClick () {
   }
 
   &__purchase {
-    @apply grid grid-cols-3 gap-x-2 items-center justify-between xl:gap-x-0;
+    @apply grid grid-cols-3 gap-x-2 items-end justify-between xl:gap-x-0;
   }
 
   &__button {
@@ -122,7 +122,7 @@ function handleClick () {
     }
 
     &__purchase {
-      @apply grid grid-cols-1 grid-rows-2 gap-0 items-stretch;
+      @apply grid grid-cols-1 grid-rows-2 gap-0;
     }
 
     &__price {
