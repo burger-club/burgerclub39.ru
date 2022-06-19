@@ -8,8 +8,7 @@
       <p class="footer__info">
         ИП Семионова Ю.Д. ИНН: 390203244897 ОГРНИП: 317392600026148
         <br>
-        Почта:
-        <a href="mailto:kramnoi@inbox.ru" class="underline">kramnoi@inbox.ru</a>
+        <a href="mailto:kramnoi@inbox.ru" class="underline">Свяжитесь с нами!</a>
       </p>
     </div>
   </footer>
