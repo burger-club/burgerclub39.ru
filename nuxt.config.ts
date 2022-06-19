@@ -87,7 +87,4 @@ export default defineNuxtConfig({
     },
   },
 
-  windicss: {
-    analyze: true,
-  },
 })
