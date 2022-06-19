@@ -5,7 +5,10 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
+      htmlAttrs: { lang: 'ru'},
       title: 'ТЕ САМЫЕ БУРГЕРЫ | Меню',
+      charset: 'UTF-8',
+      viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
         {
@@ -19,10 +22,6 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
       meta: [
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1',
-        },
         { hid: 'description', name: 'description', content: '"Те самые бургеры" - это то место, где готоят наивкуснейшие бургеры по индивидуально рецептуре из натурального мяса на нежных и ароматных булочках. Приходя к нам, все любители фастфуда будут уходить только с положительными эмоциями... Гарантия качества - "Те Самые ..."' },
         {
           name: 'keywords',
