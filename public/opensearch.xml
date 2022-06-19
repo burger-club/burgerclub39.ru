@@ -1,8 +1,0 @@
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>ТЕ САМЫЕ БУРГЕРЫ</ShortName>
-  <Description>"Те самые бургеры" - это то место, где готоят наивкуснейшие бургеры по индивидуально рецептуре из натурального мяса на нежных и ароматных булочках. Приходя к нам, все любители фастфуда будут уходить только с положительными эмоциями... Гарантия качества - "Те Самые ..."</Description>
-  <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://yoursburgers.ru/favicon.ico</Image>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://yoursburgers.ru/opensearch.xml" />
-  <moz:SearchForm>https://yoursburgers.ru</moz:SearchForm>
-</OpenSearchDescription>
