@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
-      htmlAttrs: { lang: 'ru'},
+      htmlAttrs: { lang: 'ru', dir: 'ltr'},
       title: 'ТЕ САМЫЕ БУРГЕРЫ | Меню',
       charset: 'UTF-8',
       viewport: 'width=device-width, initial-scale=1',
