@@ -56,7 +56,7 @@ defineProps({
   }
 
   &__icon {
-    @apply p-1.75 absolute top-3.25 right-5.75 bg-[#25272B] rounded-full leading-0;
+    @apply p-1.75 absolute top-6 right-5.75 bg-[#25272B] rounded-full leading-0;
   }
 }
 </style>

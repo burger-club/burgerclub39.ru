@@ -78,7 +78,7 @@ function handleClick () {
   }
 
   &__group {
-    @apply flex h-full flex-col justify-between gap-6;
+    @apply flex w-full h-full flex-col justify-between gap-6;
   }
 
   &__info {

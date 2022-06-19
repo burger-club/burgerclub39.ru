@@ -23,7 +23,7 @@ import IconWave from '~/components/icons/IconWave.vue'
 <style scoped lang="postcss">
 .footer {
   &__inner {
-    @apply pt-13.5 pb-6.5 flex flex-col items-center bg-[#25272B];
+    @apply pb-6.5 flex flex-col items-center bg-[#25272B];
   }
 
   &__hr {

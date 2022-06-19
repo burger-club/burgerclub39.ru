@@ -38,7 +38,7 @@ onUpdated(() => (stars.value = 80))
 <style scoped lang="postcss">
 
 .hero-section {
-  @apply px-3.5 pt-6.5 pb-20 m-auto flex flex-col items-center;
+  @apply px-3.5 pt-6.5 pb-40 m-auto flex flex-col items-center;
 
   &__subtitle {
     @apply mb-14 text-xl leading-30px font-medium text-gray-400 text-center;
