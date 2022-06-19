@@ -9,6 +9,8 @@ RUN npm ci --ignore-scripts &&\
 
 COPY . .
 
+ENV NODE_ENV=production
+
 RUN npm run build
 
 ENV NUXT_HOST=0.0.0.0

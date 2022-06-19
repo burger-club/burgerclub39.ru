@@ -5,9 +5,9 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     head: {
-      htmlAttrs: { lang: 'ru', dir: 'ltr'},
+      htmlAttrs: { lang: 'ru', dir: 'ltr' },
       title: 'ТЕ САМЫЕ БУРГЕРЫ | Меню',
-      charset: 'UTF-8',
+      charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
