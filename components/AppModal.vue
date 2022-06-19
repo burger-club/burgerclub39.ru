@@ -1,7 +1,7 @@
 <template>
   <VueFinalModal v-slot="{ close }" :content-class="['modal-content', size]" classes="modal-container">
     <div class="modal">
-      <div v-if="isCloseIcon" class="modal__icon cursor-pointer" @click="close">
+      <div v-if="isCloseIcon" class="modal__icon" @click="close">
         <IconClose />
       </div>
       <h2 class="modal__title">
@@ -56,7 +56,7 @@ defineProps({
   }
 
   &__icon {
-    @apply p-1.75 absolute top-6 right-5.75 bg-[#25272B] rounded-full leading-0;
+    @apply p-1.75 absolute top-8 right-5.75 bg-[#25272B] rounded-full leading-0 cursor-pointer;
   }
 }
 </style>

@@ -16,7 +16,7 @@
 
     <div class="product__amount">
       <IconPlus class="cursor-pointer" @click="addProduct(item.product)" />
-      <b>{{ item.amount }}</b>
+      <b class="select-none">{{ item.amount }}</b>
       <IconMinus
         class="cursor-pointer"
         @click="removeProduct(item.product)"
