@@ -90,11 +90,12 @@ function handleClick () {
   }
 
   &__purchase {
-    @apply grid grid-cols-3 gap-x-2 items-end justify-between xl:gap-x-0;
+    @apply grid grid-cols-3 gap-x-2 items-center justify-between xl:gap-x-0;
   }
 
   &__button {
-    @apply animate-bounce transition-all col-span-2 h-full min-w-[156.8px];
+    height: unset;
+    @apply animate-bounce transition-all col-span-2 min-w-[156.8px];
 
     &-text {
 
