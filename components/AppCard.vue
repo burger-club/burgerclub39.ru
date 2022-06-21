@@ -74,7 +74,7 @@ function handleClick () {
   }
 
   &__image {
-    @apply rounded-4px <sm:max-w-[120px];
+    @apply rounded-4px <sm:max-w-[120px] break-words;
   }
 
   &__group {
