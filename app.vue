@@ -6,10 +6,9 @@
   </div>
 
   <teleport to="body">
-    <Vue3Snackbar bottom right :duration="750" />
-  </teleport>
-
+    <Vue3Snackbar bottom right :duration="750" style="z-index: 10000;" />
   <ModalsContainer />
+  </teleport>
 </template>
 
 <script setup lang="ts">
