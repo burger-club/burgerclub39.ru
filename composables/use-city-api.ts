@@ -12,7 +12,7 @@ export const useCities = async () => {
 }
 
 export const useCurrentCity = (): [Ref<City>, Function] => {
-  const cityCookie = useCookie('city', { maxAge: 365 })
+  const cityCookie = useCookie('city')
 
   const city = useState('city', () => cityCookie.value ?? null)
 

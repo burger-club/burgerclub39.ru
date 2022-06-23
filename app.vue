@@ -9,7 +9,9 @@
     <Vue3Snackbar bottom right :duration="750" style="z-index: 10000;" />
   </teleport>
 
-  <ModalsContainer />
+  <ClientOnly>
+    <ModalsContainer />
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
