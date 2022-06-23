@@ -145,7 +145,7 @@ watch(productsCount, value => value === 0 && hideAll())
   }
 
   &__products {
-    @apply grid gap-6 mb-5.5 max-h-[40vh] overflow-y-auto px-5;
+    @apply grid gap-6 mb-5.5 max-h-[40vh] overflow-y-scroll px-5;
   }
 }
 
