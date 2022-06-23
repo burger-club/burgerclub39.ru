@@ -1,4 +1,4 @@
-import { computed, Ref, watch } from 'vue'
+import { computed, Ref } from 'vue'
 import { CartItem } from '~/interfaces/cart-item'
 import { Product } from '~/interfaces/product'
 
