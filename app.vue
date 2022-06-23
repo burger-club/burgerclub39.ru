@@ -3,15 +3,15 @@
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
+
+    <teleport to="body">
+      <ClientOnly>
+        <Vue3Snackbar bottom right :duration="750" style="z-index: 10000;" />
+
+        <ModalsContainer />
+      </ClientOnly>
+    </teleport>
   </div>
-
-  <teleport to="body">
-    <Vue3Snackbar bottom right :duration="750" style="z-index: 10000;" />
-  </teleport>
-
-  <ClientOnly>
-    <ModalsContainer />
-  </ClientOnly>
 </template>
 
 <script setup lang="ts">
