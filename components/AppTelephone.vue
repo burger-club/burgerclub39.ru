@@ -1,5 +1,5 @@
 <template>
-  <a :href="`tel:${hrefTelephone}`" class="telephone">{{ telephone }}</a>
+  <a v-if="telephone" :href="`tel:${hrefTelephone}`" class="telephone">{{ telephone }}</a>
 </template>
 
 <script setup lang="ts">
