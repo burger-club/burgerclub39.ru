@@ -7,8 +7,9 @@
 
   <teleport to="body">
     <Vue3Snackbar bottom right :duration="750" style="z-index: 10000;" />
-    <ModalsContainer />
   </teleport>
+
+  <ModalsContainer />
 </template>
 
 <script setup lang="ts">
