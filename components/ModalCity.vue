@@ -11,7 +11,16 @@
         hideAll()
       }"
     >
-      <select v-model="selectCity" required class="form__field" title="Города" name="cities">
+      <select
+        v-model="selectCity"
+        required
+        class="form__field"
+        title="Города"
+        name="cities"
+      >
+        <option disabled hidden value="">
+          Выберите город
+        </option>
         <option v-for="c in cities" :key="c.id" :value="c">
           {{ c.attributes.name }}
         </option>
@@ -30,7 +39,7 @@ import { useModal } from '~/composables/use-modal'
 
 const cities = await useCities()
 const [city, setCurrentCity] = useCurrentCity()
-const selectCity = ref(city.value ?? cities[0])
+const selectCity = ref(city.value ?? '')
 const { hideAll } = useModal()
 </script>
 

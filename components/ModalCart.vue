@@ -3,7 +3,6 @@
     <template #title>
       Корзина
     </template>
-
     <div class="cart">
       <div class="cart__products">
         <CartProduct v-for="item in cart" :key="item.product.id" :item="item" />

@@ -5,8 +5,8 @@
     <div class="header__right-content">
       <AppTelephone class="header__telephone" />
 
-      <div class="header__cart-wrapper" @click="isActiveCart && show()">
-        <IconCart :class="[{ 'cursor-pointer': isActiveCart, 'header__icon-cart': !isActiveCart }]" />
+      <div class="header__cart-wrapper" @click="productsCount > 0 && show()">
+        <IconCart :class="[{ 'cursor-pointer': productsCount > 0, 'header__icon-cart': productsCount <= 0 }]" />
         <div v-if="productsCount" class="header__circle">
           {{ productsCount }}
         </div>
@@ -16,7 +16,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import AppTelephone from './AppTelephone.vue'
 import IconCart from './icons/IconCart.vue'
 import ModalCart from './ModalCart.vue'
@@ -25,9 +24,6 @@ import { useModal } from '~/composables/use-modal'
 import { useCart } from '~/composables/use-cart'
 
 const { productsCount } = useCart()
-
-const isActiveCart = computed(() => productsCount.value > 0)
-
 const { show } = useModal(ModalCart)
 </script>
 

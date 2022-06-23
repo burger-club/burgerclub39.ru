@@ -2,11 +2,11 @@ import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
   target: 'server',
-  ssr: false,
+  ssr: true,
   app: {
     head: {
       htmlAttrs: { lang: 'ru', dir: 'ltr' },
-      title: 'ТЕ САМЫЕ БУРГЕРЫ | Меню',
+      title: 'BURGERCLUB | Меню',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [
@@ -22,12 +22,12 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
       meta: [
-        { hid: 'description', name: 'description', content: '"Те самые бургеры" - это то место, где готовят наивкуснейшие бургеры по индивидуально рецептуре из натурального мяса на нежных и ароматных булочках. Приходя к нам, все любители фастфуда будут уходить только с положительными эмоциями... Гарантия качества - "Те Самые ..."' },
+        { hid: 'description', name: 'description', content: '"BURGERCLUB" - это то место, где готовят наивкуснейшие бургеры по индивидуально рецептуре из натурального мяса на нежных и ароматных булочках. Приходя к нам, все любители фастфуда будут уходить только с положительными эмоциями... Гарантия качества - "Br ..."' },
         {
           name: 'keywords',
           content: 'заказать бургер в Советске/Гусеве, хотдог, бургер, доставка, Калининградская область бургерная, покушать Калининград, выберите, добавить, самые, бургеры',
         },
-        { hid: 'og:site_name', property: 'og:site_name', content: 'ТЕ САМЫЕ БУРГЕРЫ | Доставка бургеров по Калининградской области' },
+        { hid: 'og:site_name', property: 'og:site_name', content: 'BURGERCLUB | Доставка бургеров по Калининградской области' },
         { hid: 'og:type', property: 'og:type', content: 'website' },
         {
           hid: 'og:image',
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: 'Те самые бургеры',
+          content: 'BURGERCLUBы',
         },
         { hid: 'twitter:site', name: 'twitter:site', content: '@socketsomeone' },
         {
@@ -58,7 +58,7 @@ export default defineNuxtConfig({
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'Те самые бургеры',
+          content: 'BURGERCLUB',
         },
       ],
     },
@@ -78,7 +78,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     strapi: { // nuxt/strapi options available server-side
-      url: 'http://example-strapi-instance:1337',
+      url: 'http://strapi:1337',
     },
     public: {
       strapi: {

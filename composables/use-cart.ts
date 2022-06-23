@@ -5,13 +5,7 @@ import { Product } from '~/interfaces/product'
 type Cart = CartItem[]
 
 export const useCart = () => {
-  const cart: Ref<Cart> = useState('cart', () => JSON.parse(sessionStorage.getItem('cart') ?? '[]'))
-
-  watch(
-    () => cart.value,
-    newValue => sessionStorage.setItem('cart', JSON.stringify(newValue)),
-    { deep: true },
-  )
+  const cart: Ref<Cart> = useState('cart', () => [])
 
   const productsCount = computed(() =>
     cart.value.reduce((acc, item) => acc + item.amount, 0),

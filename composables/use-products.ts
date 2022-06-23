@@ -1,16 +1,11 @@
 import { Product } from '~/interfaces/product'
 
-interface LazyData<T> {
-  pending: boolean;
-  data: T;
-}
-
-export const useProducts = () => {
+export const useProducts = (): { products: Product[]} => {
   const { find } = useStrapi4()
-  const { pending, data: products }: LazyData<Product[]> = useLazyAsyncData('products', async () => {
+  const { data: products } = useAsyncData('products', async () => {
     const { data } = await find('products', { populate: '*' })
     return data
   })
 
-  return { pending, products }
+  return { products }
 }

@@ -1,13 +1,5 @@
 <template>
-  <IconSpinner v-if="pending" />
-
-  <div v-else>
-    <teleport to="#layout">
-      <div class="absolute left-0 w-full h-full overflow-hidden -top-24 z-0">
-        <Star v-for="star in stars" :key="star" />
-      </div>
-    </teleport>
-
+  <div>
     <section class="hero-section">
       <h1>Наше меню</h1>
 
@@ -19,20 +11,26 @@
         <AppCard v-for="(product, i) in products" :key="product.id" :product="product" :style="{ 'animation-delay': `${(~~(i / 4) * 250)}ms`}" />
       </div>
     </section>
+
+    <teleport v-if="isMounted && products?.length" to="#layout">
+      <div class="absolute left-0 w-full h-full overflow-hidden -top-24 z-0">
+        <Star v-for="star in products.length * 10" :key="star" />
+      </div>
+    </teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onUpdated, ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import AppCard from './AppCard.vue'
-import IconSpinner from './icons/IconSpinner.vue'
 import Star from '~/components/atoms/Star.vue'
 import { useProducts } from '~/composables/use-products'
 
-const { pending, products } = useProducts()
-const stars = ref(0)
-
-onUpdated(() => (stars.value = 80))
+const { products } = await useProducts()
+const isMounted = ref(false)
+onMounted(() => {
+  isMounted.value = true
+})
 </script>
 
 <style scoped lang="postcss">

@@ -1,26 +1,25 @@
-import { readonly, Ref } from 'vue'
+import { Ref } from 'vue'
 import { City } from '~/interfaces/city'
 
-export const useCities = (): City[] => {
+export const useCities = async () => {
   const { find } = useStrapi4()
-  const { value: cities } = useState('cities', async () => {
-    const res = await find('cities')
-
-    return res.data
+  const { data: cities } = await useLazyAsyncData('cities', async () => {
+    const { data } = await find('cities')
+    return data
   })
 
   return cities
 }
 
 export const useCurrentCity = (): [Ref<City>, Function] => {
-  const city: Ref<City> = useState('city', () =>
-    JSON.parse(localStorage.getItem('city') ?? 'null'),
-  )
+  const cityCookie = useCookie('city')
+
+  const city = useState('city', () => cityCookie.value ?? null)
 
   const setCurrentCity = (newCity: City) => {
-    localStorage.setItem('city', JSON.stringify(newCity))
+    cityCookie.value = newCity
     city.value = newCity
   }
 
-  return [readonly(city), setCurrentCity]
+  return [city, setCurrentCity]
 }
