@@ -6,7 +6,7 @@
 
     <teleport to="body">
       <ClientOnly>
-        <Vue3Snackbar bottom right :duration="750" style="z-index: 10000;" />
+        <Vue3Snackbar bottom right :duration="2500" style="z-index: 10000;" />
 
         <ModalsContainer />
       </ClientOnly>
