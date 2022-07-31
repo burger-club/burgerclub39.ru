@@ -35,7 +35,7 @@
           <input
             id="address"
             v-model.trim="fields.address"
-            placeholder="ул. Пушкина, д. 29, кв. 7"
+            placeholder="ул. Пушкина, д. 29, кв. 7 / Самовывоз"
             required
             type="text"
             name="address"
