@@ -2,7 +2,7 @@
   <div class="logo">
     <IconBurger />
     <div class="logo__text">
-      <span class="logo__name">BURGERCLUB</span>
+      <span class="logo__name">КрамБургер</span>
 
       <span v-if="isHeader" class="logo__city cursor-pointer" @click="show">
         {{ city ? city.attributes.name : 'Выберите город' }}

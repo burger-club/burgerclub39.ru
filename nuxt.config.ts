@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'ru', dir: 'ltr' },
-      title: 'BURGERCLUB | Меню',
+      title: 'КрамБургер | Меню',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [
@@ -22,12 +22,12 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
       meta: [
-        { hid: 'description', name: 'description', content: '"BURGERCLUB" - это то место, где готовят наивкуснейшие бургеры по индивидуально рецептуре из натурального мяса на нежных и ароматных булочках. Приходя к нам, все любители фастфуда будут уходить только с положительными эмоциями... Гарантия качества - "Br ..."' },
+        { hid: 'description', name: 'description', content: '"КрамБургер" - это то место, где готовят наивкуснейшие бургеры по индивидуально рецептуре из натурального мяса на нежных и ароматных булочках. Приходя к нам, все любители фастфуда будут уходить только с положительными эмоциями... Гарантия качества - "Br ..."' },
         {
           name: 'keywords',
           content: 'заказать бургер в Советске/Гусеве, хотдог, бургер, доставка, Калининградская область бургерная, покушать Калининград, выберите, добавить, самые, бургеры',
         },
-        { hid: 'og:site_name', property: 'og:site_name', content: 'BURGERCLUB | Доставка бургеров по Калининградской области' },
+        { hid: 'og:site_name', property: 'og:site_name', content: 'КрамБургер | Доставка бургеров по Калининградской области' },
         { hid: 'og:type', property: 'og:type', content: 'website' },
         {
           hid: 'og:image',
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: 'BURGERCLUBы',
+          content: 'КрамБургеры',
         },
         { hid: 'twitter:site', name: 'twitter:site', content: '@socketsomeone' },
         {
@@ -58,7 +58,7 @@ export default defineNuxtConfig({
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: 'BURGERCLUB',
+          content: 'КрамБургер',
         },
       ],
     },
