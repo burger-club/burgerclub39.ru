@@ -10,11 +10,40 @@
 
       <div class="cart__total-price">
         <hr class="border-gray-800 mb-5">
-        <span>Итого: <strong>{{ totalPrice }} ₽</strong></span>
+        <div class="grid grid-cols-2">
+          <span v-if="isDelivery">Доставка: <strong>100 ₽</strong></span>
+          <span class="cart__text cart__text_right">Итого: <strong>{{ isDelivery ? Number(totalPrice) + 100 : totalPrice }} ₽</strong></span>
+        </div>
       </div>
 
-      <form class="cart__form form" @submit.prevent="() => {createOrder(); hideAll()}">
-        <div>
+      <div class="cart__delivery-type">
+        <AppButton
+          class="cart__button cart__button_left"
+          :class="{ cart__button_active: isDelivery }"
+          @click="changeDeliveryType('delivery')"
+        >
+          Доставка
+        </AppButton>
+
+        <AppButton
+          class="cart__button cart__button_right"
+          :class="{ cart__button_active: !isDelivery }"
+          @click="changeDeliveryType('pickup')"
+        >
+          Самовывоз
+        </AppButton>
+      </div>
+
+      <form
+        class="cart__form form"
+        @submit.prevent="
+          () => {
+            createOrder()
+            hideAll()
+          }
+        "
+      >
+        <div :class="{ form__div_full: !isDelivery }">
           <label for="tel" class="required">Контактный телефон</label>
           <br>
           <input
@@ -29,13 +58,16 @@
           >
         </div>
 
-        <div>
-          <label for="address" class="required">Адрес</label>
+        <div v-if="isDelivery">
+          <label
+            for="address"
+            :class="{ required: isDelivery }"
+          >Адрес</label>
           <br>
           <input
             id="address"
             v-model.trim="fields.address"
-            placeholder="ул. Пушкина, д. 29, кв. 7 / Самовывоз"
+            placeholder="ул. Пушкина, д. 29, кв. 7"
             required
             type="text"
             name="address"
@@ -43,7 +75,7 @@
           >
         </div>
 
-        <div>
+        <div :class="{ form__div_full: !isDelivery }">
           <label for="name" class="required">Имя</label>
           <br>
           <input
@@ -57,8 +89,16 @@
           >
         </div>
 
-        <div class="form__buttons">
-          <input type="button" value="Отмена" class="form__cancel-button" @click="hideAll">
+        <div
+          class="form__buttons"
+          :class="{ form__buttons_full: !isDelivery }"
+        >
+          <input
+            type="button"
+            value="Отмена"
+            class="form__cancel-button"
+            @click="hideAll"
+          >
           <input type="submit" value="Оформить" class="form__submit-button">
         </div>
       </form>
@@ -67,7 +107,8 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, watch } from 'vue'
+import { reactive, ref, computed, watch } from 'vue'
+import AppButton from './AppButton.vue'
 import AppModal from './AppModal.vue'
 import CartProduct from './CartProduct.vue'
 import { useCurrentCity } from '~/composables/use-city-api'
@@ -77,6 +118,14 @@ import { useModal } from '~/composables/use-modal'
 import { useSnackbar } from '~/composables/use-snackbar'
 
 const { cart, totalPrice, clear: clearCart, productsCount } = useCart()
+
+const deliveryType = ref('delivery')
+
+const changeDeliveryType = (newDeliveryType: string) => {
+  deliveryType.value = newDeliveryType
+}
+
+const isDelivery = computed(() => deliveryType.value === 'delivery')
 
 const fields = reactive({
   phone: '+7',
@@ -94,6 +143,8 @@ const snackbar = useSnackbar()
 
 const createOrder = async () => {
   try {
+    if (!isDelivery.value) { fields.address = 'Самовывоз' }
+
     await create({
       ...fields,
       city: city.value.id,
@@ -106,7 +157,7 @@ const createOrder = async () => {
 
     snackbar.add({
       type: 'success',
-      text: `Ваш заказ на сумму ${totalPrice.value} ₽ принят в работу. Ожидайте звонка от оператора!`,
+      text: `Ваш заказ на сумму ${isDelivery.value ? Number(totalPrice.value) + 100 : totalPrice.value} ₽ принят в работу. Ожидайте звонка от оператора!`,
     })
   } catch {
     snackbar.add({
@@ -128,12 +179,20 @@ watch(productsCount, value => value === 0 && hideAll())
 }
 
 .form {
-  @apply grid grid-cols-2 gap-x-8 gap-y-3 items-end
-  <md:grid-cols-1;
+  @apply grid grid-cols-2 gap-x-8 gap-y-3 items-end <md: grid-cols-1;
+
+  &__div {
+    &_full {
+      @apply <md: col-span-2;
+    }
+  }
 
   &__buttons {
-    @apply grid grid-cols-2 gap-x-10
-    <sm:flex  flex-col-reverse gap-y-3;
+    @apply grid grid-cols-2 gap-x-10 <sm: flex flex-col-reverse gap-y-3;
+
+    &_full {
+      @apply col-span-2 mt-6;
+    }
   }
 
   // styles for input buttons see in main.css
@@ -141,15 +200,41 @@ watch(productsCount, value => value === 0 && hideAll())
 
 .cart {
   &__total-price {
-    @apply text-right mb-2 pt-4 px-5;
+    @apply mb-2 pt-4 px-5;
+  }
+
+  &__text {
+    &_right {
+      @apply text-right col-start-2;
+    }
   }
 
   &__products {
     @apply grid gap-6 mb-5.5 max-h-[40vh] overflow-y-scroll px-5;
   }
+
+  &__delivery-type {
+    @apply grid grid-cols-2 col-span-2 my-4 rounded-lg border-gray-800 border-solid border-width-2;
+  }
+
+  &__button {
+    @apply bg-transparent;
+
+    &_active {
+      @apply bg-yellow-500;
+    }
+
+    &_left {
+      @apply rounded-r-none;
+    }
+
+    &_right {
+      @apply rounded-l-none;
+    }
+  }
 }
 
-@media screen and (max-height:769px) {
+@media screen and (max-height: 769px) {
   .cart {
     &__products {
       @apply max-h-[25vh];
@@ -157,7 +242,7 @@ watch(productsCount, value => value === 0 && hideAll())
   }
 }
 
-@media screen and (max-height:700px) {
+@media screen and (max-height: 700px) {
   .cart {
     &__products {
       @apply max-h-[20vh];
